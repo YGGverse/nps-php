@@ -3,7 +3,7 @@
 PHP 8 / Composer Library for NPS Protocol
 
 Unlike Titan for Gemini, NPS is the satellite for Nex protocol (see also [nex-php](https://github.com/YGGverse/nex-php))\
-it listen for dot in line to signal the package ending.
+it listen for single dot in line to signal the package ending.
 
 ## Specification
 
@@ -52,9 +52,12 @@ $server->start(
         string $connect
     ) {
         printf(
-            'connection: %s request: %s content: %s',
+            'connection: %s request: %s',
             $connect,
-            $request,
+            $request
+        );
+
+        var_dump(
             $content
         );
     }
