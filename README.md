@@ -1,8 +1,8 @@
 # nps-php
 
-PHP 8 / Composer Library for NPS Protocol (see also [nex-php](https://github.com/YGGverse/nex-php))
+PHP 8 / Composer Library for NPS Protocol
 
-Like Titan for Gemini, NPS is the satellite for Nex protocol\
+Like Titan for Gemini, NPS is the satellite for Nex protocol (see also [nex-php](https://github.com/YGGverse/nex-php))\
 it uses dot in line to signal the package ending.
 
 ## Specification
@@ -47,13 +47,15 @@ Define handler function as the argument to process application logic dependent o
 ``` php
 $server->start(
     function (
+        string $content,
         string $request,
         string $connect
     ) {
         printf(
-            'connection: %s request: %s',
+            'connection: %s request: %s content: %s',
             $connect,
-            $request
+            $request,
+            $content
         );
     }
 );
