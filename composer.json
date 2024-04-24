@@ -1,0 +1,19 @@
+{
+    "name": "yggverse/nps",
+    "description": "PHP 8 Library for NPS Protocol",
+    "keywords": [ "yggverse", "nps", "nps-protocol", "server" ],
+    "homepage": "https://github.com/yggverse/nps-php",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Yggverse\\Nps\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "YGGverse"
+        }
+    ],
+    "require": {}
+}
