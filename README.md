@@ -2,7 +2,7 @@
 
 PHP 8 / Composer Library for NPS Protocol
 
-Like Titan for Gemini, NPS is the satellite for Nex protocol (see also [nex-php](https://github.com/YGGverse/nex-php))\
+Like Titan for Gemini, NPS is the satellite for NEX protocol (see also [nex-php](https://github.com/YGGverse/nex-php))\
 it listen for single dot in line to signal the package ending.
 
 ## Specification
