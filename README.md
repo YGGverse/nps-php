@@ -5,6 +5,10 @@ PHP 8 / Composer Library for NPS Protocol (see also [nex-php](https://github.com
 Like Titan for Gemini, NPS is the satellite for Nex protocol\
 it uses dot in line to signal the package ending.
 
+## Specification
+
+`nex://nightfall.city/nps/`
+
 ## Usage
 
 ```
@@ -79,7 +83,3 @@ test
 ```
 
 `cat file.txt | nc 127.0.0.1 1915`
-
-## Specification
-
-`nex://nightfall.city/nps/`
