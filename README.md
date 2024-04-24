@@ -64,14 +64,14 @@ Same to `Server::setLive(false)`
 ## Testing
 
 1. `nc 127.0.0.1 1915` - connect server using `nc`
-2. `classifieds` - enter the target path
+2. `test` - enter the target path
 3. `YOUR MESSAGE GOES HERE` - enter the message text
 4. `.` - commit package with dot
 
 To send any file:
 
 ``` file.txt
-classifieds
+test
 ╦ ╦╔═╗╔═╗╔╦╗╦═╗╔═╗╔═╗╦╦
 ╚╦╝║ ╦║ ╦ ║║╠╦╝╠═╣╚═╗║║
  ╩ ╚═╝╚═╝═╩╝╩╚═╩ ╩╚═╝╩╩═╝
