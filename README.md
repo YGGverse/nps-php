@@ -5,29 +5,6 @@ PHP 8 / Composer Library for NPS Protocol (see also [nex-php](https://github.com
 Like Titan for Gemini, NPS is the satellite for Nex protocol\
 it uses dot in line to signal the package ending.
 
-**Example**
-
-1. `nc nightfall.city 1915` - connect server using `nc`
-2. `classifieds` - enter the target path
-3. `YOUR MESSAGE GOES HERE` - enter the message text
-4. `.` - commit package with dot
-
-To send any file:
-
-``` file.txt
-classifieds
-╦ ╦╔═╗╔═╗╔╦╗╦═╗╔═╗╔═╗╦╦
-╚╦╝║ ╦║ ╦ ║║╠╦╝╠═╣╚═╗║║
- ╩ ╚═╝╚═╝═╩╝╩╚═╩ ╩╚═╝╩╩═╝
-.
-```
-
-`cat file.txt | nc nightfall.city 1915`
-
-**Specification**
-
-`nex://nightfall.city/nps/`
-
 ## Usage
 
 ```
@@ -83,3 +60,26 @@ $server->start(
 Stop server instance.
 
 Same to `Server::setLive(false)`
+
+## Testing
+
+1. `nc 127.0.0.1 1915` - connect server using `nc`
+2. `classifieds` - enter the target path
+3. `YOUR MESSAGE GOES HERE` - enter the message text
+4. `.` - commit package with dot
+
+To send any file:
+
+``` file.txt
+classifieds
+╦ ╦╔═╗╔═╗╔╦╗╦═╗╔═╗╔═╗╦╦
+╚╦╝║ ╦║ ╦ ║║╠╦╝╠═╣╚═╗║║
+ ╩ ╚═╝╚═╝═╩╝╩╚═╩ ╩╚═╝╩╩═╝
+.
+```
+
+`cat file.txt | nc 127.0.0.1 1915`
+
+## Specification
+
+`nex://nightfall.city/nps/`
