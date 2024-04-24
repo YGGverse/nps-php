@@ -61,7 +61,7 @@ Stop server instance.
 
 Same to `Server::setLive(false)`
 
-## Testing
+### Testing
 
 1. `nc 127.0.0.1 1915` - connect server using `nc`
 2. `test` - enter the target path
