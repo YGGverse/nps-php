@@ -2,8 +2,7 @@
 
 PHP 8 / Composer Library for NPS Protocol (see also [nex-php](https://github.com/YGGverse/nex-php))
 
-Like Titan for Gemini, NPS is the satellite for Nex protocol
-
+Like Titan for Gemini, NPS is the satellite for Nex protocol\
 it uses dot in line to signal the package ending.
 
 **Example**
@@ -15,8 +14,6 @@ it uses dot in line to signal the package ending.
 
 To send any file:
 
-* `nano file.txt`
-
 ``` file.txt
 classifieds
 ╦ ╦╔═╗╔═╗╔╦╗╦═╗╔═╗╔═╗╦╦
@@ -25,7 +22,7 @@ classifieds
 .
 ```
 
-* `cat file.txt | nc nightfall.city 1915`
+`cat file.txt | nc nightfall.city 1915`
 
 **Specification**
 
