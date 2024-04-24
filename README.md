@@ -2,7 +2,7 @@
 
 PHP 8 / Composer Library for NPS Protocol
 
-Unlike Titan for Gemini, NPS is the satellite for Nex protocol (see also [nex-php](https://github.com/YGGverse/nex-php))\
+Like Titan for Gemini, NPS is the satellite for Nex protocol (see also [nex-php](https://github.com/YGGverse/nex-php))\
 it listen for single dot in line to signal the package ending.
 
 ## Specification
@@ -70,7 +70,7 @@ Stop server instance.
 
 Same to `Server::setLive(false)`
 
-### Test
+### Testing
 
 1. `nc 127.0.0.1 1915` - connect server using `nc`
 2. `test` - enter the target path
