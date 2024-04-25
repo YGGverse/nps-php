@@ -110,13 +110,13 @@ $server->setPending(
     ): ?string
     {
         printf(
-            "connection: %s requested: %s",
+            'connection: %s requested: %s',
             $connect,
             $request,
         );
 
         return sprintf(
-            "received: %s",
+            'received: %s',
             $request
         );
     }
