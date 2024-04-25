@@ -84,7 +84,8 @@ $server->start(
         string $content,
         string $request,
         string $connect
-    ) {
+    ): ?string
+    {
         printf(
             'connection: %s request: %s',
             $connect,
@@ -97,6 +98,8 @@ $server->start(
                 $content
             );
         }
+
+        return 'thank you!';
     }
 );
 ```

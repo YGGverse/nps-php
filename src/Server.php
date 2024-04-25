@@ -185,10 +185,6 @@ class Server
                 false
             );
 
-            fclose(
-                $incoming
-            );
-
             if ($handler)
             {
                 $response = call_user_func(
@@ -198,7 +194,19 @@ class Server
                     $request,
                     $connect
                 );
+
+                if ($response)
+                {
+                    fwrite(
+                        $incoming,
+                        $response
+                    );
+                }
             }
+
+            fclose(
+                $incoming
+            );
 
         } while ($this->_live);
     }
