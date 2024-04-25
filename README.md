@@ -71,6 +71,99 @@ Set server status `true`|`false` to shutdown immediately
 
 Get current server status
 
+#### Server::setWelcome
+
+Define application logic on peer connection established
+
+``` php
+$server->setWelcome(
+    function (
+        string $connect
+    ): ?string
+    {
+        printf(
+            "connected: %s\n\r",
+            $connect
+        );
+
+        return sprintf(
+            "welcome, %s\n\r",
+            $connect
+        );
+    }
+);
+```
+
+#### Server::getWelcome
+
+Get current `Welcome` function, `null` by default
+
+#### Server::setPending
+
+Define application logic on peer make initial request
+
+``` php
+$server->setPending(
+    function (
+        string $request,
+        string $connect
+    ): ?string
+    {
+        printf(
+            "connection: %s requested: %s",
+            $connect,
+            $request,
+        );
+
+        return sprintf(
+            "received: %s",
+            $request
+        );
+    }
+);
+```
+
+#### Server::getPending
+
+Get current `Pending` function, `null` by default
+
+#### Server::setHandler
+
+Define basic application logic on complete packet received.
+
+Could be also defined as [Server::start](https://github.com/YGGverse/nps-php#serverstart) argument.
+
+``` php
+$server->setHandler(
+    function (
+          bool $success,
+        string $content,
+        string $request,
+        string $connect
+    ): ?string
+    {
+        printf(
+            'connection: %s request: %s',
+            $connect,
+            $request
+        );
+
+        if ($success)
+        {
+            var_dump(
+                $content
+            );
+        }
+
+        return "thank you!\n\r";
+    }
+);
+```
+
+#### Server::getHandler
+
+Get current `Handler` function, `null` by default
+
 #### Server::start
 
 Run server object using this method.

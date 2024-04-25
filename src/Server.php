@@ -10,6 +10,10 @@ class Server
     private int    $_line;
     private bool   $_live;
 
+    private $_welcome = null;
+    private $_pending = null;
+    private $_handler = null;
+
     public function __construct(
         string $host = '127.0.0.1',
         int    $port = 1915,
@@ -111,10 +115,53 @@ class Server
         $this->_live = $value;
     }
 
+    public function getWelcome(): callable
+    {
+        return $this->_welcome;
+    }
+
+    public function setWelcome(
+        callable $function
+    ): void
+    {
+        $this->_welcome = $function;
+    }
+
+    public function getPending(): callable
+    {
+        return $this->_pending;
+    }
+
+    public function setPending(
+        callable $function
+    ): void
+    {
+        $this->_pending = $function;
+    }
+
+    public function getHandler(): callable
+    {
+        return $this->_handler;
+    }
+
+    public function setHandler(
+        callable $function
+    ): void
+    {
+        $this->_handler = $function;
+    }
+
     public function start(
         ?callable $handler = null
     ): void
     {
+        if ($handler)
+        {
+            $this->setHandler(
+                $handler
+            );
+        }
+
         $socket = stream_socket_server(
             sprintf(
                 'tcp://%s:%d',
@@ -141,6 +188,22 @@ class Server
                 $socket, -1, $connect
             );
 
+            if ($this->_welcome)
+            {
+                $response = call_user_func(
+                    $this->_welcome,
+                    $connect
+                );
+
+                if ($response)
+                {
+                    fwrite(
+                        $incoming,
+                        $response
+                    );
+                }
+            }
+
             stream_set_blocking(
                 $incoming,
                 true
@@ -150,6 +213,23 @@ class Server
                 $incoming,
                 $this->_line
             );
+
+            if ($this->_pending)
+            {
+                $response = call_user_func(
+                    $this->_pending,
+                    $request,
+                    $connect
+                );
+
+                if ($response)
+                {
+                    fwrite(
+                        $incoming,
+                        $response
+                    );
+                }
+            }
 
             $success = true;
 
@@ -185,10 +265,10 @@ class Server
                 false
             );
 
-            if ($handler)
+            if ($this->_handler)
             {
                 $response = call_user_func(
-                    $handler,
+                    $this->_handler,
                     $success,
                     $content,
                     $request,
