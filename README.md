@@ -23,12 +23,13 @@ Build interactive server instance to listen NPS protocol connections!
 $server = new \Yggverse\Nps\Server;
 ```
 
-Provide optional `host`, `port`, `size`, `line` and `live` arguments in constructor.\
-Alternatively, just use available setters documented bellow after object initiation.
+Provide optional `host`, `port`, `size`, `line` and `live` arguments in constructor:
 
 ``` php
 $server = new \Yggverse\Nps\Server('127.0.0.1', 1915);
 ```
+
+Alternatively, just use available setters documented bellow after object initiation
 
 #### Server::setHost
 
