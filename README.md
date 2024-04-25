@@ -166,7 +166,7 @@ Get current `Handler` function, `null` by default
 
 #### Server::start
 
-Run server object using this method
+Run server object
 
 ``` php
 $server->start();
