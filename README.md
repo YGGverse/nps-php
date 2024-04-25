@@ -166,9 +166,13 @@ Get current `Handler` function, `null` by default
 
 #### Server::start
 
-Run server object using this method.
+Run server object using this method
 
-Define handler function as the argument to process application logic dependent of client request.
+``` php
+$server->start();
+```
+
+Optionally, define handler function as the argument to process application logic dependent of client request
 
 ``` php
 $server->start(
