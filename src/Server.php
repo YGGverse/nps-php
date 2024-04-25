@@ -7,12 +7,14 @@ class Server
     private string $_host;
     private int    $_port;
     private int    $_size;
+    private int    $_line;
     private bool   $_live;
 
     public function __construct(
         string $host = '127.0.0.1',
         int    $port = 1915,
-        int    $size = 1024,
+        int    $size = 0,
+        int    $line = 1024,
         bool   $live = true
     ) {
         $this->setHost(
@@ -25,6 +27,10 @@ class Server
 
         $this->setSize(
             $size
+        );
+
+        $this->setLine(
+            $line
         );
 
         $this->setLive(
@@ -81,6 +87,18 @@ class Server
         $this->_size = $value;
     }
 
+    public function getLine(): int
+    {
+        return $this->_line;
+    }
+
+    public function setLine(
+        int $value
+    ): void
+    {
+        $this->_line = $value;
+    }
+
     public function getLive(): bool
     {
         return $this->_live;
@@ -130,8 +148,10 @@ class Server
 
             $request = fread(
                 $incoming,
-                $this->_size
+                $this->_line
             );
+
+            $success = true;
 
             $content = '';
 
@@ -140,9 +160,16 @@ class Server
                 $line = trim(
                     fread(
                         $incoming,
-                        $this->_size
+                        $this->_line
                     )
                 );
+
+                if ($this->_size && mb_strlen($content) > $this->_size)
+                {
+                    $success = false;
+
+                    break;
+                }
 
                 if ($line == '.')
                 {
@@ -166,6 +193,7 @@ class Server
             {
                 $response = call_user_func(
                     $handler,
+                    $success,
                     $content,
                     $request,
                     $connect
