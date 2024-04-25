@@ -99,7 +99,7 @@ $server->start(
             );
         }
 
-        return 'thank you!';
+        return 'thank you!'; // null|string response
     }
 );
 ```
