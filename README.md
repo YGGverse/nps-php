@@ -129,9 +129,9 @@ Get current `Pending` function, `null` by default
 
 #### Server::setHandler
 
-Define basic application logic on complete packet received.
+Define basic application logic on complete packet received
 
-Could be also defined as [Server::start](https://github.com/YGGverse/nps-php#serverstart) argument.
+* could be also defined as [Server::start](https://github.com/YGGverse/nps-php#serverstart) argument
 
 ``` php
 $server->setHandler(
@@ -155,7 +155,7 @@ $server->setHandler(
             );
         }
 
-        return "thank you!\n\r";
+        return 'thank you!';
     }
 );
 ```
