@@ -23,20 +23,52 @@ Build interactive server instance to listen NPS protocol connections!
 $server = new \Yggverse\Nps\Server;
 ```
 
-Provide optional `host`, `port` and `size` arguments in constructor or use available setters after object initiation.
+Provide optional `host`, `port`, `size`, `line` and `live` arguments in constructor.\
+Alternatively, just use available setters documented bellow after object initiation.
 
 ``` php
 $server = new \Yggverse\Nps\Server('127.0.0.1', 1915);
 ```
 
 #### Server::setHost
+
+Bind server host to listen incoming connections, `127.0.0.1` by default
+
 #### Server::getHost
+
+Get current server host
+
 #### Server::setPort
+
+Bind server port to listen incoming connections, `1915` by default
+
 #### Server::getPort
+
+Get current server port
+
 #### Server::setSize
+
+Set total content length limit by [mb_strlen](https://www.php.net/manual/en/function.mb-strlen.php), `0` by default (unlimited)
+
 #### Server::getSize
+
+Get current content length limit
+
+#### Server::setLine
+
+Set packet line limit in bytes passing to [fread](https://www.php.net/manual/en/function.fread.php#length), `1024` by default
+
+#### Server::getLine
+
+Get current packet line limit
+
 #### Server::setLive
+
+Set server status `true`|`false` to shutdown immediately
+
 #### Server::getLive
+
+Get current server status
 
 #### Server::start
 
@@ -47,6 +79,7 @@ Define handler function as the argument to process application logic dependent o
 ``` php
 $server->start(
     function (
+          bool $success,
         string $content,
         string $request,
         string $connect
@@ -57,9 +90,12 @@ $server->start(
             $request
         );
 
-        var_dump(
-            $content
-        );
+        if ($success)
+        {
+            var_dump(
+                $content
+            );
+        }
     }
 );
 ```
