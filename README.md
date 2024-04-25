@@ -29,7 +29,7 @@ Provide optional `host`, `port`, `size`, `line` and `live` arguments in construc
 $server = new \Yggverse\Nps\Server('127.0.0.1', 1915);
 ```
 
-Alternatively, just use available setters documented bellow after object initiation
+Alternatively, use following setters after object initiation
 
 #### Server::setHost
 
