@@ -259,7 +259,7 @@ class Server
                     break;
                 }
 
-                $content .= $line;
+                $content .= $line . PHP_EOL;
 
             } while ($this->_live);
 
