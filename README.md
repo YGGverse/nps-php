@@ -1,3 +1,7 @@
+**Archived!**
+
+Use [Ratchet](https://github.com/ratchetphp/Ratchet) `IoServer` - asynchronous WebSocket in PHP as more featured replacement to this library.
+
 # nps-php
 
 PHP 8 / Composer Library for NPS Protocol
